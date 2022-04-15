@@ -28,7 +28,8 @@ const HomePage = () => {
   return (
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
-      <Link to="/addcomment">Add Comment!</Link>
+      <Link to="/SearchPage">Search My Page!</Link>
+      <Link to="/VideoPage">VideoPage</Link>
       {cars &&
         cars.map((car) => (
           <p key={car.id}>

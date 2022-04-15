@@ -87,7 +87,7 @@ const AddCommentPage  = () => {
         
           
         
-        <button>AddComment!</button>
+        <button>SearchPage</button>
       </form>
     </div>
   );
