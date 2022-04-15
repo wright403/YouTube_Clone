@@ -33,18 +33,24 @@ def add_comment(request):
 
 
 # WIP BELOW
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view([ 'PUT'])
 @permission_classes([IsAuthenticated])
 def comment_detail(request, pk):
-    comment = get_object_or_404(Comment, pk = pk)
-    if request.method == 'GET':
-        serializer = CommentSerializer(comment);
-        return Response(serializer.data)
-    elif request.method == 'PUT':
-        serializer = CommentSerializer(comment, data = request.data)
-        serializer.is_valid()
-        serializer.save()
-        return Response(serializer.data)
-    elif request.method == 'DELETE':
-        comment.delete()
-        return Response(status = status.HTTP_204_NO_CONTENT)
+    comments = get_object_or_404(Comment, pk=pk)
+    serializer = CommentSerializer(comments, data=request.data)
+    serializer.is_valid()
+    serializer.save()
+
+
+
+@permission_classes([IsAuthenticated])
+@api_view(['GET'])
+def get_all_authcomments (request):
+        comments = Comment.objects.all()
+        serializer = CommentSerializer(comments, many=True, data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
+
+    
