@@ -1,4 +1,7 @@
-// General Imports
+// General Import
+import React, { useState } from 'react';
+
+
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -14,8 +17,17 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
+  
+  
+  const [userInput, setUserInput] = useState("");
+  const getUserInput = (event) => {
+    setUserInput(event.target.value);
+  };
+  
+  
   return (
     <div>
       <Navbar />
@@ -31,6 +43,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/addcomment" element={<PrivateRoute><AddCommentPage/></PrivateRoute>} />
+        <Route path="/searchbar" element={<SearchBar getUserInput={getUserInput} userInput={userInput} />} />
       </Routes>
       <Footer />
     </div>
