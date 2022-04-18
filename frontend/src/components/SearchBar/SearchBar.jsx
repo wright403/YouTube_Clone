@@ -1,9 +1,19 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 const SearchBar = ({getUserInput, userInput}) => {
     
     
-  
+    
+    
+    const navigate = useNavigate()
+    
+    
+    
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        navigate("/");
+      };
     
     
     

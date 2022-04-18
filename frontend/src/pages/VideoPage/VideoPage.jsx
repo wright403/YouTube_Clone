@@ -11,7 +11,7 @@ const VideoPage = (props) => {
         }
     const [user, token] = useAuth()
     const navigate = useNavigate()
-    const [formData, handleInputChange, handleSubmit] = useCustomForm(DefaultValue, Videos)
+    const [] = useCustomForm(DefaultValue, Videos)
 
     
     

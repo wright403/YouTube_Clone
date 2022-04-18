@@ -32,7 +32,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <SearchBar />
+      <SearchBar getUserInput={getUserInput} userInput={userInput} />
       <Routes>
         <Route
           path="/"
