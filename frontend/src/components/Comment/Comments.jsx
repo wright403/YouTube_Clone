@@ -26,13 +26,19 @@ const Comments = (props) => {
     
     
     
-    
-    
-    
-    
-    
     return ( 
-
+        <div>
+          {comments &&
+          comments.map((comment, i) => (
+              <div>
+                  <p>Comment: {comment.text}</p>
+                  <p>Likes: {comment.likes}</p>
+                  <p>Dislikes: {comment.dislikes}</p>
+                  <p>User: {comment.user_id}</p>
+              </div>
+          ))}
+          
+        </div>
      );
 }
  
