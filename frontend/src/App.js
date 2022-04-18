@@ -32,6 +32,7 @@ function App() {
   return (
     <div>
       <Navbar />
+      <SearchBar />
       <Routes>
         <Route
           path="/"
@@ -44,7 +45,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/searchpage" element={<PrivateRoute><SearchPage/></PrivateRoute>} />
-        <Route path="/searchbar" element={<SearchBar getUserInput={getUserInput} userInput={userInput} />} />
+        {/* <Route path="/searchbar" element={<SearchBar getUserInput={getUserInput} userInput={userInput} />} /> */}
         <Route path="videopage" element={<VideoPage />} />
       </Routes>
       <Footer />
