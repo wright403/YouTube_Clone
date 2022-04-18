@@ -5,5 +5,6 @@ urlpatterns = [
 	path('', views.get_all_comments),
 	path('add/', views.add_comment),
 	path('<int:pk>/', views.comment_detail),
-	path('', views.get_all_authcomments)
+	path('', views.get_all_authcomments),
+	path('', views.user_reply)
 ]
