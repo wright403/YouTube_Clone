@@ -40,21 +40,21 @@ def comment_detail(request, pk):
     serializer = CommentSerializer(comments, data=request.data)
     serializer.is_valid(raise_exception=True)
     serializer.save()
-    return Response(serializers.data, status=status.HTTP_200_OK)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 @permission_classes([IsAuthenticated])
 @api_view(['GET',])
-def get_all_authcomments (request):
+def get_all_authcomments (request, pk):
         comments = get_object_or_404(Comment, pk=pk)
-        serializer = CommentSerializer(comment)
+        serializer = CommentSerializer(comments, data=request.data)
         return Response(serializer.data)
 
 
 @api_view(['GET','POST'])
 @permission_classes([IsAuthenticated])
-def user_reply(request):
+def user_reply(request, pk):
     if request.method == 'GET':
-        replies = Reply.objects.all()
+        replies = Reply.objects.filter(comment_id=pk)
         serializer = ReplySerializer(replies,many=True)
         return Response(serializer.data, status.HTTP_200_OK)
     elif request.method == 'POST':
@@ -62,5 +62,5 @@ def user_reply(request):
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)               
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)               
     
