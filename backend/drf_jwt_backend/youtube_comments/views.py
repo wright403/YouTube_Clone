@@ -12,7 +12,7 @@ from django.shortcuts import get_object_or_404
 
 @permission_classes([AllowAny])
 @api_view(['GET'])
-def get_all_comments (request):
+def get_all_comments(request):
         comments = Comment.objects.all()
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -43,7 +43,7 @@ def comment_detail(request, pk):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 @permission_classes([IsAuthenticated])
-@api_view(['GET',])
+@api_view(['GET'])
 def get_all_authcomments (request, pk):
         comments = get_object_or_404(Comment, pk=pk)
         serializer = CommentSerializer(comments, data=request.data)

@@ -19,6 +19,7 @@ import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./utils/PrivateRoute";
 import SearchBar from "./components/SearchBar/SearchBar";
 import VideoPage from './pages/VideoPage/VideoPage';
+import Comments from './components/Comment/Comments';
 
 function App() {
   
@@ -33,6 +34,7 @@ function App() {
     <div>
       <Navbar />
       <SearchBar getUserInput={getUserInput} userInput={userInput} />
+      <Comments  />
       <Routes>
         <Route
           path="/"

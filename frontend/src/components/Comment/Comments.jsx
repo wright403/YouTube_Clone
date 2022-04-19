@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import Link from "react-router-dom";
 import axios from 'axios';
@@ -19,7 +19,10 @@ const Comments = (props) => {
     
     
     
-    
+    useEffect(() => {
+        
+        console.log('useEffect')
+    }, [getComment])
     
     
     
@@ -29,7 +32,7 @@ const Comments = (props) => {
     return ( 
         <div>
           {comments &&
-          comments.map((comment, i) => (
+          props.comments.map((comment) => (
               <div>
                   <p>Comment: {comment.text}</p>
                   <p>Likes: {comment.likes}</p>
