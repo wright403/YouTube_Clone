@@ -18,12 +18,6 @@ const Comments = (props) => {
     
     
     
-    useEffect(() => {
-        
-        console.log('useEffect')
-    }, [getComment])
-    
-    
     
     
     
@@ -31,7 +25,7 @@ const Comments = (props) => {
     return ( 
         <div>
           {comments &&
-          props.comments.map((comment) => (
+          comments.map((comment) => (
               <div>
                   <p>Comment: {comment.text}</p>
                   <p>Likes: {comment.likes}</p>

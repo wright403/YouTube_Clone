@@ -23,7 +23,7 @@ const Replies = (props) => {
     return ( 
         <div>
             {replies &&
-          props.replies.map((reply) => (
+          replies.map((reply) => (
               <div>
                   <p>Text: {reply.text}</p>
                   <p>User: {reply.user_id}</p>

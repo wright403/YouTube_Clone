@@ -20,6 +20,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import SearchBar from "./components/SearchBar/SearchBar";
 import VideoPage from './pages/VideoPage/VideoPage';
 import Comments from './components/Comment/Comments';
+import Videoplayer from './components/VideoPlayer/VideoPlayer';
 
 function App() {
   
@@ -35,6 +36,7 @@ function App() {
       <Navbar />
       <SearchBar getUserInput={getUserInput} userInput={userInput} />
       <Comments  />
+      <Videoplayer />
       <Routes>
         <Route
           path="/"
