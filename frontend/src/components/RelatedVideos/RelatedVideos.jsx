@@ -29,13 +29,28 @@ const RelatedVideos = (props) => {
     
     
     
-    
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        navigate("/");
+      };
     
     
     
     
     return ( 
-        ''
+        <div>
+            <ul>
+               {relatedvideos.map((video, index) => {
+                   if(video.snippet){
+                       return(
+                           <li key={index}>
+                               <button type='button' onClick={() => handleSubmit(video.id)}></button>
+                           </li>
+                       )
+                   }
+               })} 
+            </ul>
+        </div>
      );
 }
  
