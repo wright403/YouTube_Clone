@@ -44,6 +44,8 @@ const RelatedVideos = (props) => {
                    if(video.snippet){
                        return(
                            <li key={index}>
+                               <img src={`${url}`}></img>
+                               "thumbnail goes here"
                                <button type='button' onClick={() => handleSubmit(video.id)}></button>
                            </li>
                        )
