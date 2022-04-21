@@ -17,6 +17,13 @@ const Comments = (props) => {
     }
     
     
+    useEffect(() => {
+        let mounted = true;
+        if(mounted){
+            getComment();
+        };
+        return () => mounted = false
+    }, [])
     
     
     

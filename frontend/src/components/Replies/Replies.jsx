@@ -17,6 +17,15 @@ const Replies = (props) => {
     }
     
     
+    useEffect(() => {
+        let mounted = true;
+        if(mounted){
+            getreplies();
+        };
+        return () => mounted = false
+    }, [])
+    
+    
     
     
     

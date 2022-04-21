@@ -1,15 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 
 const RelatedVideos = (props) => {
     
     const [relatedvideos, setRelatedvideos] = useState([])
-    const APIKEY = w4XH3LYleDA
+    const navigate = useNavigate()
+
 
     async function seeRelatedVideos(video_id){
         try {
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId={${video_id}}&type=video&key={${APIKEY}}`)
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId={${video_id}}&type=video&key={}`)
             setRelatedvideos(response.data.results);
             console.log('video id')
         } catch (error) {
@@ -44,8 +47,6 @@ const RelatedVideos = (props) => {
                    if(video.snippet){
                        return(
                            <li key={index}>
-                               <img src={`${url}`}></img>
-                               "thumbnail goes here"
                                <button type='button' onClick={() => handleSubmit(video.id)}></button>
                            </li>
                        )

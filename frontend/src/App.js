@@ -21,6 +21,8 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import VideoPage from './pages/VideoPage/VideoPage';
 import Comments from './components/Comment/Comments';
 import Videoplayer from './components/VideoPlayer/VideoPlayer';
+import RelatedVideos from './components/RelatedVideos/RelatedVideos';
+import CommentList from './components/Comment/CommentList';
 
 function App() {
   
@@ -35,7 +37,7 @@ function App() {
     <div>
       <Navbar />
       <SearchBar getUserInput={getUserInput} userInput={userInput} />
-      <Comments  />
+      
       <Videoplayer />
       <Routes>
         <Route
@@ -52,6 +54,9 @@ function App() {
         {/* <Route path="/searchbar" element={<SearchBar getUserInput={getUserInput} userInput={userInput} />} /> */}
         <Route path="videopage" element={<VideoPage />} />
       </Routes>
+      
+      <Comments />
+      <RelatedVideos />
       <Footer />
     </div>
   );
